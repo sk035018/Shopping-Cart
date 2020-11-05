@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: teal;
+}
+
+.card {
+  margin: 10px;
+  padding: 20px;
+}
+
+.head {
+  background-color: white;
+  display: flex;
+  color: teal;
+  justify-content: space-around;
+}
+
+div{
+  background-color: rgb(201, 247, 253);
+  border: solid teal 5px;
+}
+
+table {
+  background-color: rgb(201, 247, 253);
+  border: solid rgb(79, 104, 241) 2px;
+  padding: 10px;
+  width: 1000px;
+}
+th, td {
+  border: solid turquoise 2px;
+  padding: 5px;
+}
+a {
+  border: solid rgb(32, 184, 184) 5px;
+  background-color: rgb(150, 226, 240);
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  margin: 25px;
+  width: 150px;
+}
+
+a:hover {
+  background-color: rgb(76, 223, 223);
+}
+
+button {
+  border: solid teal 2px;
+  background-color: transparent;
+  padding: 10px;
+  width: 125px;
+}
+
+button:hover {
+  border: solid white 2px;
+  background-color: turquoise;
+  color: white;
+}
+
+.border {
+  border: solid turquoise 10px;
+  padding: 50px;
+}
