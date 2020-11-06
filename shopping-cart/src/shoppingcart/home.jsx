@@ -14,7 +14,7 @@ const Home = () => {
         <Router>
             <div className = 'head'>
                 <Link to = "/">Home</Link>
-                <h2><u>Shopping Cart</u></h2>
+                <h1><u><i>Shopping Cart</i></u></h1>
                 <Link to = "/cart">Cart</Link>
             </div>
             <div className = 'App-header'>

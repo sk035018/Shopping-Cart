@@ -1,10 +1,25 @@
-import React from 'react';
-import { getCartList, setCartList } from './utility';
-import { useHistory } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { getCartList, setCartList as setAsLocal, setItemId} from './utility';
 
 const Cart = () => {
+    const [cartList, setCartList] = useState([]);
     const headers = ["Name", "Brand", "Effective Cost", "Action"];
-    const cartList = getCartList();
+    
+    function updateHooks() {
+        const cartList = getCartList();
+
+        if(cartList) {
+            setCartList(cartList);
+        } else {
+            setAsLocal([]);
+            setItemId(1);
+        }
+    }
+
+    useEffect(() => {
+        updateHooks();
+    }, []); 
+
     const total = cartList.reduce((acc, item) => acc += (item.cost - item.off), 0);
 
     return (
@@ -22,7 +37,7 @@ const Cart = () => {
                                 <td>{item.name}</td>
                                 <td>{item.brand}</td>
                                 <td>{item.cost - item.off}</td>
-                                <td><DelBtn id = {item.id} /></td>
+                                <td><DelBtn id = {item.id} updateHooks = {updateHooks} /></td>
                             </tr>
                         );
                     })}
@@ -33,17 +48,16 @@ const Cart = () => {
     );
 }
 
-const DelBtn = ({id}) => {
-    const history = useHistory();
+const DelBtn = ({id, updateHooks}) => {
     return (
         <button
             onClick = {() => {
                 debugger;
                 console.log(typeof getCartList()[0].id + " " + typeof +id );
                 let cartList = getCartList().filter(item => item.id !== id);
-                setCartList(cartList);
+                setAsLocal(cartList);
                 window.alert("Deleted Successfully");
-                history.push('/');
+                updateHooks()
             }}
         >Remove From Cart</button>
     )
